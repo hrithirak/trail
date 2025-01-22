@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/github/webhook', methods=['POST'])
 def handle_webhook():
     
-    return 'Webhook received successfully Sample!'
+    return 'Webhook received successfully Sample!!'
 
 if __name__ == '__main__':
     app.run(debug=True)
