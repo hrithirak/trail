@@ -1,6 +1,4 @@
 from flask import Flask, request,jsonify 
-
-import hashlib
 import json
 
 
@@ -9,7 +7,13 @@ app = Flask(__name__)
 APP_KEY = b"webhookhrithi"
 @app.route('/webhook', methods=['POST'])
 def handle_webhook():
+    github_webhooks_value = request.args.get('Github-webhooks')
+    if github_webhooks_value:
+        print(github_webhooks_value)
+    else:
+        return "Github-webhooks parameter not found", 400
     github_hook_id = request.headers.get('X-Github-Hook-ID')
+    print(github_hook_id)
     if not github_hook_id:
         return jsonify({'error':'Missing github ID'}),400
     try:
