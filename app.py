@@ -28,7 +28,7 @@ def handle_webhook():
     except json.JSONDecodeError:
         return jsonify({'error': 'Invalid JSON payload'}), 400
     print('Webhook received successfully Sample!')
-    return 'OK'
+    return 'DEV'
 
 
 if __name__ == '__main__':
